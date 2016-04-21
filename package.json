@@ -1,0 +1,19 @@
+{
+  "name": "vue-demo",
+  "version": "1.0.0",
+  "description": "vue-demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --config build/webpack.dev.config.js",
+    "build": "webpack --progress --hide-modules --config build/webpack.prod.config.js",
+    "test": "karma start build/karma.conf.js"
+  },
+  "keywords": [
+    "leon"
+  ],
+  "author": "leon",
+  "license": "MIT",
+  "devDependencies": {
+    "vue": "^1.0.21"
+  }
+}

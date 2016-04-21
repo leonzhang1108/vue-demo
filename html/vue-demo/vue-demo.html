@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-demo</title>
+    <link rel="stylesheet" href="../../css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/vue-demo.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Vue Demo</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="navbar-brand" href="#">登录</a></li>
+                <li><a class="navbar-brand" href="#">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <div id="shell-wrap">
+                <div class="container-fluid">
+                    <div id="demo-leon">
+                        {{message}}
+                        <input v-model="message">
+                    </div>
+                </div>
+                <div id="demo">
+                    <form id="search">
+                        Search <input name="query" v-model="searchQuery">
+                    </form>
+                    <demo-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery">
+                    </demo-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/x-template" id="grid-template">
+    <table>
+        <thead>
+        <tr>
+            <th v-for="key in columns" @click="sortBy(key)" :class="{active: sortKey == key}">{{key | capitalize}}
+          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="entry in data | filterBy filterKey | orderBy sortKey sortOrders[sortKey]">
+            <td v-for="key in columns">
+                {{entry[key]}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/javascript" data-main="../../js/vue-demo" src="../../js/lib/require.js"></script>
+</body>
+</html>
