@@ -1786,5 +1786,7 @@ define(function () {
     ES.msg.route_detail_comment_infoall = '全部评论';
     ES.msg.reg_zipcode_fail = '邮编不正确';
     ES.msg.wait_comment = '待评论';
+
+
     return ES
 })

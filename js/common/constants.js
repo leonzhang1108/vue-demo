@@ -2,25 +2,9 @@
  * Created by leon on 2016/4/21.
  */
 
-define(["util","message"],function (Util,Message) {
+define(function () {
     var ES = {}
     ES.consts = {}
-
-
-    ES.msg = {}
-    ES.msg.get = function(key, arg) {
-        console.log(Message)
-        console.log(Util)
-        if (Message.msg[key]) {
-            console.log('hehehe')
-
-            return key;
-            return Util.format_string(Message.msg[key], arg)
-        } else {
-            console.warn('key not found: ' + key)
-            return key;
-        }
-    }
 
     ES.consts.container_size = {
         "GP_20": "20GP",
@@ -404,6 +388,8 @@ define(["util","message"],function (Util,Message) {
         value: 'LAND',
         display: '陆运'
     }]
+
+
 
     return ES
 })
