@@ -3,7 +3,7 @@
  */
 
 require.config({
-    baseUrl: '../../js/lib/',
+    baseUrl: '../js/lib/',
     shim: {
         'bootstrap': ['jquery']
     },
